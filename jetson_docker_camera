@@ -1,5 +1,6 @@
 docker run --name {container_name} --gpus all --runtime nvidia -it --network=host \
   -v /home/harry/docker_shared:/docker_shared \
+  -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
   -v "$HOME/.Xauthority:/root/.Xauthority:rw" \
   -v /tmp/argus_socket:/tmp/argus_socket \
   {image_name}
