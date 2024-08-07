@@ -1,0 +1,10 @@
+docker run --name {container_name} --gpus all --runtime nvidia -it --network=host \
+  -v /home/harry/docker_shared:/docker_shared \
+  -v "$HOME/.Xauthority:/root/.Xauthority:rw" \
+  -v /tmp/argus_socket:/tmp/argus_socket \
+  {image_name}
+
+apt-get update
+apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-alsa gstreamer1.0-x
+
+gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! 'video/x-raw(memory:NVMM),width=1920, height=1080, framerate=30/1' ! nvvidconv flip-method=0 ! 'video/x-raw,width=640, height=360' ! ximagesink
