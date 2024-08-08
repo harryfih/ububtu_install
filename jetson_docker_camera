@@ -16,5 +16,4 @@ Note :
 -v "$HOME/.Xauthority:/root/.Xauthority:rw" : 用於支援 X11 forwarding 到遠端 terminal
 -v /tmp/argus_socket:/tmp/argus_socket : 用於 gst-launch-1.0 工具顯示
 
-若要使用 VNC 使 docker GUI 輸出到 displat :0，則在啟用 docker 之前，terminal 要先設定 export DISPLAY=:0，然後 docker run 要加上參數 -e DISPLAY=$DISPLAY
-
+若要使用 VNC 使 docker GUI 輸出到 display :0，則在啟用 docker 之前，terminal 要先設定 export DISPLAY=:0 並執行 xhost +，然後 docker run 要加上參數 -e DISPLAY=$DISPLAY
