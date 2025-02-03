@@ -1,6 +1,8 @@
 apt install openssh-server
-vi /etc/ssh/sshd_config --> Serch Port and set Port 10022
-vi ~/.bashrc --> service ssh start
+vi /etc/ssh/sshd_config
+  --> Serch Port and set Port 10022
+vi ~/.bashrc 
+  --> service ssh start
 ssh-keygen
 mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 mv ~/.ssh/id_rsa ~/test.pem
