@@ -1,3 +1,7 @@
 sudo apt-get purge nvidia*
 sudo apt-cache search nvidia-driver-*
 sudo apt-get install nvidia-driver-535
+
+curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub | sudo gpg --dearmor -o /usr/share/keyrings/cuda-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" | sudo tee /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
+sudo apt-get install cuda-toolkit-12-1
