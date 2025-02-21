@@ -1,0 +1,12 @@
+docker run --privileged --gpus=all -it --name=ur_ros2-3 -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
+source /opt/ros/humble/setup.bash
+apt update
+sudo apt install ros-$ROS_DISTRO-ur-client-library
+sudo apt install ros-$ROS_DISTRO-ur
+
+#test simulator : open new terminal
+docker pull universalrobots/ursim_e-series
+docker run --rm -it --network=host universalrobots/ursim_e-series
+
+# back driver terminal
+
