@@ -1,3 +1,5 @@
+# Refer https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
+
 docker run --privileged --gpus=all -it --name=ur_ros2-3 -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
 source /opt/ros/humble/setup.bash
 apt update
