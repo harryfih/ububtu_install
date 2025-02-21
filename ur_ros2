@@ -9,4 +9,4 @@ docker pull universalrobots/ursim_e-series
 docker run --rm -it --network=host universalrobots/ursim_e-series
 
 # back driver terminal
-
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.58.84 launch_rviz:=true
