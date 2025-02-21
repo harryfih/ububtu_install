@@ -5,6 +5,7 @@ source /opt/ros/humble/setup.bash
 apt update
 sudo apt install ros-$ROS_DISTRO-ur-client-library
 sudo apt install ros-$ROS_DISTRO-ur
+sudo apt install ros-$ROS_DISTRO-ros2controlcli
 
 #test simulator : open new terminal
 docker pull universalrobots/ursim_e-series
