@@ -5,7 +5,6 @@ source /opt/ros/humble/setup.bash
 apt update
 sudo apt install ros-$ROS_DISTRO-ur-client-library
 sudo apt install ros-$ROS_DISTRO-ur
-sudo apt install ros-$ROS_DISTRO-ros2controlcli
 
 #test simulator : open new terminal
 docker pull universalrobots/ursim_e-series
@@ -18,4 +17,12 @@ http://10.57.58.84:6080/vnc.html?host=10.57.58.84&port=6080
 
 # back driver terminal
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.58.84 launch_rviz:=true
+
+
+# for controller install
+source /opt/ros/humble/setup.bash
+sudo apt update
+sudo apt install ros-$ROS_DISTRO-ur-client-library
+sudo apt install ros-$ROS_DISTRO-ur
+sudo apt install ros-$ROS_DISTRO-ros2controlcli
 
