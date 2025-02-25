@@ -34,7 +34,7 @@ sudo apt install ros-$ROS_DISTRO-ur
 sudo apt install ros-$ROS_DISTRO-ros2controlcli
 
 # For test program
-docker run --privileged --gpus=all -it --name=ur_ros2_controller -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
+docker run --privileged --gpus=all -it --name=ur_ros2_test -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
 source /opt/ros/humble/setup.bash
 sudo apt install .....
 
