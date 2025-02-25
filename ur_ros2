@@ -10,10 +10,13 @@ sudo apt install ros-$ROS_DISTRO-ur
 docker pull universalrobots/ursim_e-series
 
 #download urcap extenal control and save to /home/harry/docker_shared/ur_test/ursim/urcaps:/urcap
-docker run --rm -it --network=host -v /home/harry/docker_shared/ur_test/ursim/urcaps:/urcaps -v /home/harry/docker_shared/ur_test/ursim/programs:/ursim/programs universalrobots/ursim_e-series
+https://github.com/UniversalRobots/Universal_Robots_ExternalControl_URCap/releases
+download externalcontrol-1.0.5.jar to /home/harry/docker_shared/ur5e/ursim/urcaps
+mkdir /home/harry/docker_shared/ur5e/ursim/programs
+docker run --rm -it --network=host -v /home/harry/docker_shared/ur5e/ursim/urcaps:/urcaps -v /home/harry/docker_shared/ur5e/ursim/programs:/ursim/programs universalrobots/ursim_e-series
 
 # Connect to simulator
-http://10.57.58.84:6080/vnc.html?host=10.57.58.84&port=6080
+http://10.57.46.94:6080/vnc.html?host=10.57.46.94&port=6080
 
 # back driver terminal
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.58.84 launch_rviz:=true
