@@ -19,7 +19,7 @@ docker run --rm -it --network=host -v /home/harry/docker_shared/ur5e/ursim/urcap
 http://10.57.46.94:6080/vnc.html?host=10.57.46.94&port=6080
 
 # Back to driver terminal
-ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.58.84 launch_rviz:=true
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.46.94 launch_rviz:=true
 
 # Error when connect to real ur5e?
 [URPositionHardwareInterface]: Variable 'speed_slider_mask' is currently controlled by another RTDE client. The input recipe can't be used as configured
