@@ -1,12 +1,12 @@
 # Refer https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 
-docker run --privileged --gpus=all -it --name=ur_ros2-3 -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
+docker run --privileged --gpus=all -it --name=ur_ros2_driver -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
 source /opt/ros/humble/setup.bash
 apt update
 sudo apt install ros-$ROS_DISTRO-ur-client-library
 sudo apt install ros-$ROS_DISTRO-ur
 
-#test simulator : open new terminal
+#test simulator : Open new terminal
 docker pull universalrobots/ursim_e-series
 
 #download urcap extenal control and save to /home/harry/docker_shared/ur_test/ursim/urcaps:/urcap
@@ -18,19 +18,24 @@ docker run --rm -it --network=host -v /home/harry/docker_shared/ur5e/ursim/urcap
 # Connect to simulator
 http://10.57.46.94:6080/vnc.html?host=10.57.46.94&port=6080
 
-# back driver terminal
+# Back to driver terminal
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=10.57.58.84 launch_rviz:=true
 
+# Error when connect to real ur5e?
+[URPositionHardwareInterface]: Variable 'speed_slider_mask' is currently controlled by another RTDE client. The input recipe can't be used as configured
+Ref : https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/issues/204
 
-# for controller install
+# For controller install and test
+docker run --privileged --gpus=all -it --name=ur_ros2_controller -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
 source /opt/ros/humble/setup.bash
 sudo apt update
 sudo apt install ros-$ROS_DISTRO-ur-client-library
 sudo apt install ros-$ROS_DISTRO-ur
 sudo apt install ros-$ROS_DISTRO-ros2controlcli
 
+# For test program
+docker run --privileged --gpus=all -it --name=ur_ros2_controller -v ~/docker_shared:/docker_shared -v /dev:/dev --network=host -v /tmp/.X11-unix:/tmp/.X11-unix -v "$HOME/.Xauthority:/root/.Xauthority:rw" -e DISPLAY=$DISPLAY ubuntu_2204_ros2
+source /opt/ros/humble/setup.bash
+sudo apt install .....
 
 
-# Error when connect to real ur5e?
-[URPositionHardwareInterface]: Variable 'speed_slider_mask' is currently controlled by another RTDE client. The input recipe can't be used as configured
-Ref : https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/issues/204
